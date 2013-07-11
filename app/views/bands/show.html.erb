@@ -7,6 +7,6 @@
   <% end %>
 </ul>
 
-<%= render :partial => "shared/create_edit_link", locals: {name: @band.class.name.downcase} %>
+<%= edit_link @band.class.name.downcase %>
 <br>
 <%= destroy_button @band %>

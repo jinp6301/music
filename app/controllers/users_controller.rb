@@ -4,7 +4,16 @@ class UsersController < ApplicationController
   end
 
   def create
-    User.create(params[:user])
-    redirect_to users_url
+    params[:user][:activation_token] = SecureRandom.urlsafe_base64(8)
+    user = User.create(params[:user])
+    url = Addressable::URI.new(
+      scheme: "http",
+      host: "localhost",
+      port: 3000,
+      path: "users/activate",
+      query_values: {token: user.activation_token})
+    msg = UserMailer.welcome_email(user, url)
+    msg.deliver!
+    render :text => "Check your email for the activation link"
   end
 end

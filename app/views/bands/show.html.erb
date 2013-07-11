@@ -4,6 +4,11 @@
 <ul>
   <% @band.albums.each do |album| %>
     <li><%= link_to album.name, album_url(album) %></li>
+    <ul>
+      <% album.tracks.each do |track| %>
+      <li><%= link_to track.name, track_url(track)%></li>
+      <% end %>
+    </ul>
   <% end %>
 </ul>
 

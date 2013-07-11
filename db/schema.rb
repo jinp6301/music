@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130711190416) do
+ActiveRecord::Schema.define(:version => 20130711193708) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -47,8 +47,9 @@ ActiveRecord::Schema.define(:version => 20130711190416) do
     t.string   "email"
     t.string   "password"
     t.string   "token"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "activation_token"
   end
 
 end

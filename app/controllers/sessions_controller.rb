@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_email(params[:session][:email])
     if user.password == params[:session][:password] &&
-      !!user.activation_token # make sure account has been activated
+      !user.activation_token # make sure account has been activated
       user.token = SecureRandom.urlsafe_base64(8)
       user.save
       session[:token] = user.token

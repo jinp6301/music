@@ -15,7 +15,7 @@ Lyrics:
   Author: <%= note.user.email %>
   <br>
   <%= note.contents %>
-
+  <%= destroy_button note if note.user_id == @user.id || @user.admin %>
 </ul>
 <% end %>
 

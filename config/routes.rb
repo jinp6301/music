@@ -59,7 +59,7 @@ Music::Application.routes.draw do
   resources :bands
   resources :albums
   resources :tracks
-  resources :notes, only: [:create]
+  resources :notes, only: [:create, :destroy]
   resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create]
 

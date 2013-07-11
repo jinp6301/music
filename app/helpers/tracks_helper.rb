@@ -4,6 +4,6 @@ module TracksHelper
     lyrics.split("\n").map do |line|
       "&#9835; #{line}"
     end.join("\n") +
-    "</pre>").html_safe
+    "</pre>")
   end
 end

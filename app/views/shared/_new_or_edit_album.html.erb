@@ -1,0 +1,28 @@
+<h2><%= "#{action.capitalize} album" %></h2>
+
+<form action="<%= action == "create" ? albums_url : album_url %>" method="post">
+  <label for="album_name">Album Name</label>
+  <input type="text" value="<%= album.name %>">
+  <br>
+  <label for="band_id">Band Name</label>
+  <select>
+    <% bands.each do |band| %>
+        <option value="<%= band.id %>" <%= "selected" if !!album.band && band.name == album.band.name %>><%= band.name %></option>
+    <% end %>
+  </select>
+  <br>
+  <label for="location">Location</label>
+  <select>
+    <% locations.each do |location| %>
+      <option value="<%= location %>" <%= "selected" if location == album.location %>><%= location.capitalize %></option>
+    <% end %>
+  </select>
+  <br>
+  <% if action == "edit" %>
+    <input type="hidden" name="_method" value="put">
+  <% end %>
+  <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+  <input type="submit" value="Create Album">
+</form>

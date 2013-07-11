@@ -19,7 +19,9 @@ class AlbumsController < ApplicationController
   end
 
   def edit
+    @bands = Band.all
     @album = Album.find(params[:id])
+    @locations = Album::LOCATIONS
   end
 
   def update

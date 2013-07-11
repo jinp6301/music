@@ -8,3 +8,5 @@
 </ul>
 
 <%= render :partial => "shared/create_edit_link", locals: {name: @band.class.name.downcase} %>
+<br>
+<%= render :partial => "shared/create_destroy_link", locals: {object: @band} %>

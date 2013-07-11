@@ -24,4 +24,9 @@ class BandsController < ApplicationController
     Band.find(params[:id]).update_attributes(params[:band])
     redirect_to band_url
   end
+
+  def destroy
+    Band.find(params[:id]).destroy
+    redirect_to bands_url
+  end
 end

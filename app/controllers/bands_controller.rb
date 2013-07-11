@@ -15,4 +15,8 @@ class BandsController < ApplicationController
     Band.create(params[:band])
     redirect_to bands_url
   end
+
+  def edit
+    @band = Band.find(params[:id])
+  end
 end

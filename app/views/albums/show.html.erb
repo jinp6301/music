@@ -1,0 +1,12 @@
+<h2><%= @album.name %></h2>
+
+<h3>Tracks</h3>
+<ul>
+  <% @album.tracks.each do |track| %>
+    <li><%= link_to track.name, track_url(track) %></li>
+  <% end %>
+</ul>
+
+<%= edit_link @album.class.name.downcase %>
+<br>
+<%= destroy_button @album %>

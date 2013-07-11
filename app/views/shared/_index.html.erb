@@ -1,0 +1,7 @@
+<h2><%= objects.first.class.name.pluralize %></h2>
+
+<ul>
+  <% objects.each do |object| %>
+    <li><%= link_to object.name, send("#{object.class.name.downcase}_url", object) %></li>
+  <% end %>
+</ul>

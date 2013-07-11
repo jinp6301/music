@@ -1,24 +1,24 @@
 <h2><%= "#{action.capitalize} album" %></h2>
 
 <form action="<%= action == "create" ? albums_url : album_url %>" method="post">
-  <label for="album_name">Album Name</label>
-  <input type="text" value="<%= album.name %>">
+  <label for="name">Album Name</label>
+  <input type="text" value="<%= album.name %>" name="album[name]">
   <br>
   <label for="band_id">Band Name</label>
-  <select>
+  <select name="album[band_id]">
     <% bands.each do |band| %>
         <option value="<%= band.id %>" <%= "selected" if !!album.band && band.name == album.band.name %>><%= band.name %></option>
     <% end %>
   </select>
   <br>
   <label for="location">Location</label>
-  <select>
+  <select name="album[location]">
     <% locations.each do |location| %>
       <option value="<%= location %>" <%= "selected" if location == album.location %>><%= location.capitalize %></option>
     <% end %>
   </select>
   <br>
-  <% if action == "edit" %>
+  <% if action == "update" %>
     <input type="hidden" name="_method" value="put">
   <% end %>
   <input type="hidden"

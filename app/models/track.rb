@@ -5,4 +5,5 @@ class Track < ActiveRecord::Base
   validates :name, uniqueness: {scope: :album_id}
 
   belongs_to :album, dependent: :destroy
+  has_one :band, through: :album
 end

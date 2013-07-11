@@ -10,6 +10,15 @@ Lyrics:
 <br>
 <%= render :partial => "note", locals: {track: @track, note: @note, action: "create"} %>
 <br>
+<% @track.notes.each do |note| %>
+<ul>
+  Author: <%= note.user.email %>
+  <br>
+  <%= note.contents %>
+
+</ul>
+<% end %>
+
 <%= edit_link @track.class.name.downcase %>
 <br>
 <%= destroy_button @track if @user.admin %>

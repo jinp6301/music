@@ -17,3 +17,5 @@ Album.create([{name: 'Album 1', band_id: 1, location: "live"},
 Track.create([{name: 'Track 1', album_id: 1},
               {name: 'Track 2', album_id: 1},
               {name: 'Track 3', album_id: 2}])
+
+User.create([{email: 'user@email.com', password: 'password'}])

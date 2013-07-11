@@ -60,6 +60,8 @@ Music::Application.routes.draw do
   resources :albums
   resources :tracks
   resources :notes, only: [:create]
+  resources :users, only: [:new, :create]
+  resources :sessions, only: [:new, :create]
 
-  get '/', to: redirect('/bands')
+  get '/', to: redirect('/sessions/new')
 end

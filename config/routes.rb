@@ -59,4 +59,6 @@ Music::Application.routes.draw do
   resources :bands
   resources :albums
   resources :tracks
+
+  get '/', to: redirect('/bands')
 end

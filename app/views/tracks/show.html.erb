@@ -1,0 +1,11 @@
+<h2><%= @track.name %></h2>
+
+Name: <%= @track.name %>
+<br>
+Lyrics:
+<br>
+<%= @track.lyrics%>
+<br>
+<%= edit_link @track.class.name.downcase %>
+<br>
+<%= destroy_button @track %>

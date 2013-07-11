@@ -1,0 +1,25 @@
+<h2><%= "#{action.capitalize} track" %></h2>
+
+<form action="<%= action == "create" ? tracks_url : track_url %>" method="post">
+  <label for="track_name">Track Name</label>
+  <input type="text" value="<%= track.name %>" name="track[name]" id="track_name">
+  <br>
+  <label for="album_id">Album Name</label>
+  <select name="track[album_id]">
+    <% albums.each do |album| %>
+        <option value="<%= album.id %>" <%= "selected" if album.id == track.album_id %>> <%= album.name %> </option>
+    <% end %>
+  </select>
+  <br>
+  <label for="track_lyrics">Lyrics</label>
+  <br>
+  <textarea rows="4" cols="50" name="track[lyrics]" id="track_lyrics"><%= track.lyrics %></textarea>
+  <br>
+  <% if action == "update" %>
+    <input type="hidden" name="_method" value="put">
+  <% end %>
+  <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+  <input type="submit" value="Create Track">
+</form>

@@ -1,0 +1,12 @@
+<form action="<%= notes_url %>" method="post">
+  <textarea rows="4" cols="50" name="note[contents]" id="note_contents"><%= note.contents %></textarea>
+  <br>
+  <% if action == "update" %>
+    <input type="hidden" name="_method" value="put">
+  <% end %>
+  <input type="hidden" name="note[track_id]" value="<%= track.id %>">
+  <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+  <input type="submit" value="Submit">
+</form>

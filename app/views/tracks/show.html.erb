@@ -8,6 +8,8 @@ Lyrics:
 <br>
 <%= @track.lyrics%>
 <br>
+<%= render :partial => "note", locals: {track: @track, note: @note, action: "create"} %>
+<br>
 <%= edit_link @track.class.name.downcase %>
 <br>
 <%= destroy_button @track %>

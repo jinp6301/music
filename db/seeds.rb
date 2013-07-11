@@ -18,4 +18,5 @@ Track.create([{name: 'Track 1', album_id: 1},
               {name: 'Track 2', album_id: 1},
               {name: 'Track 3', album_id: 2}])
 
-User.create([{email: 'user@email.com', password: 'password'}])
+User.create([{email: 'user@email.com', password: 'password', admin: false},
+             {email: 'admin@email.com', password: '1234', admin: true}])

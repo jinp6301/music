@@ -1,0 +1,6 @@
+<h2>Create New <%= object.class %></h2>
+
+<%= form_for object, url: {action: "create"} do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit "Create" %>
+<% end %>

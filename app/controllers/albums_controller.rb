@@ -8,7 +8,9 @@ class AlbumsController < ApplicationController
   end
 
   def new
+    @bands = Band.all
     @album = Album.new
+    @locations = Album::LOCATIONS
   end
 
   def create

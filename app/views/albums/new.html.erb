@@ -1,1 +1,22 @@
-<%= render :partial => "shared/new_or_edit_form", locals: {object: @album, action: "Create"} %>
+<h2><%= "Create album" %></h2>
+
+<form action="<%= albums_url %>" method="post">
+  <label for="album_name">Album Name</label>
+  <input type="text">
+  <br>
+  <label for="band_id">Band Name</label>
+  <select>
+    <% @bands.each do |band| %>
+      <option value="<%= band.id %>"><%= band.name %></option>
+    <% end %>
+  </select>
+  <br>
+  <label for="location">Location</label>
+  <select>
+    <% @locations.each do |location| %>
+      <option value="<%= location %>"><%= location.capitalize %></option>
+    <% end %>
+  </select>
+  <br>
+  <input type="submit" value="Create Album">
+</form>

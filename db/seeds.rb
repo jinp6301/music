@@ -10,9 +10,9 @@ Band.create([{name: 'Band 1'},
              {name: 'Band 2'},
              {name: 'Band 3'}])
 
-Album.create([{name: 'Album 1', band_id: 1},
-              {name: 'Album 2', band_id: 1},
-              {name: 'Album 3', band_id: 3}])
+Album.create([{name: 'Album 1', band_id: 1, location: "live"},
+              {name: 'Album 2', band_id: 1, location: "studio"},
+              {name: 'Album 3', band_id: 3, location: "studio"}])
 
 Track.create([{name: 'Track 1', album_id: 1},
               {name: 'Track 2', album_id: 1},

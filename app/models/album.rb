@@ -1,9 +1,12 @@
 class Album < ActiveRecord::Base
-  attr_accessible :band_id, :name, :type
 
-  validates :band_id, :name, :type, presence: true
+  LOCATIONS = ["live", "studio"]
+
+  attr_accessible :band_id, :name, :location
+
+  validates :band_id, :name, :location, presence: true
   validates :name, uniqueness: {scope: :band_id}
-  validates :type, inclusion: { in: ["live", "studio"] }
+  validates :location, inclusion: { in: LOCATIONS }
 
   belongs_to :band, dependent: :destroy
 

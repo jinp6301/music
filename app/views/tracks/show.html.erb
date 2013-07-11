@@ -12,4 +12,4 @@ Lyrics:
 <br>
 <%= edit_link @track.class.name.downcase %>
 <br>
-<%= destroy_button @track %>
+<%= destroy_button @track if @user.admin %>

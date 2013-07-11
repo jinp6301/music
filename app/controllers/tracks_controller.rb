@@ -4,6 +4,7 @@ class TracksController < ApplicationController
   end
 
   def show
+    @user = User.find_by_token(session[:token])
     @track = Track.find(params[:id])
     @note = Note.new
   end

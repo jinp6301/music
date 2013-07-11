@@ -4,6 +4,7 @@ class AlbumsController < ApplicationController
   end
 
   def show
+    @user = User.find_by_token(session[:token])
     @album = Album.find(params[:id])
   end
 

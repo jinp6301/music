@@ -4,6 +4,7 @@ class BandsController < ApplicationController
   end
 
   def show
+    @user = User.find_by_token(session[:token])
     @band = Band.find(params[:id])
   end
 

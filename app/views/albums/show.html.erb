@@ -13,4 +13,4 @@ Type: <%= @album.location %>
 
 <%= edit_link @album.class.name.downcase %>
 <br>
-<%= destroy_button @album %>
+<%= destroy_button @album if @user.admin %>

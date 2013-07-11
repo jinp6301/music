@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_filter :authenticate, except: [:new, :create, :activate]
+
   def new
     @user = User.new
   end
@@ -15,5 +18,15 @@ class UsersController < ApplicationController
     msg = UserMailer.welcome_email(user, url)
     msg.deliver!
     render :text => "Check your email for the activation link"
+  end
+
+  def activate
+    user = User.find_by_activation_token(params[:token])
+    user.activation_token = nil
+
+    user.token = SecureRandom.urlsafe_base64(8)
+    user.save
+    session[:token] = user.token
+    redirect_to bands_url
   end
 end

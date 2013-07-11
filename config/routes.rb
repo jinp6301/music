@@ -63,5 +63,7 @@ Music::Application.routes.draw do
   resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create]
 
+  get '/users/activate', to: 'users#activate'
+
   get '/', to: redirect('/sessions/new')
 end
